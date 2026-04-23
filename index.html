@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Reports | Jason Kaczmarski Team | RE/MAX 1st Choice</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red: #d81f26;
+  --blue: #1f4fa3;
+  --blue-dark: #163d82;
+  --teal: #0e7490;
+  --teal-dark: #0c4a6e;
+  --gold: #f0b429;
+  --text: #1a1a2e;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --bg: #f7f8fc;
+  --white: #ffffff;
+}
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background: var(--red);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header img { max-width: 200px; }
+
+.hero {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: white;
+  padding: 56px 20px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  opacity: .65;
+  margin-bottom: 14px;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  position: relative;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 15px;
+  opacity: .75;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  max-width: 860px;
+  margin: 48px auto 64px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.tool-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,.09);
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  color: inherit;
+}
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.14);
+}
+.tool-card-banner {
+  height: 8px;
+}
+.tool-card-banner.blue { background: linear-gradient(90deg, var(--blue), var(--blue-dark)); }
+.tool-card-banner.teal { background: linear-gradient(90deg, var(--teal-dark), var(--teal)); }
+
+.tool-card-body {
+  padding: 32px 28px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.tool-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.tool-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.25;
+  flex: 1;
+}
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+  align-self: flex-start;
+}
+.tool-btn.blue {
+  background: var(--blue);
+  color: white;
+}
+.tool-btn.blue:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.tool-btn.teal {
+  background: var(--teal);
+  color: white;
+}
+.tool-btn.teal:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.tool-btn svg { width: 14px; height: 14px; }
+
+.footer {
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  padding: 18px 20px;
+  font-size: 13px;
+}
+.footer a { color: var(--gold); text-decoration: none; }
+.footer .disclaimer {
+  margin-top: 8px;
+  font-size: 10px;
+  opacity: .55;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .tools-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="https://kvcore-library.s3.amazonaws.com/remax1stchoice8207/images/03b9616f75a8e185d56a93c799829fdf.png" alt="RE/MAX 1st Choice – Jason Kaczmarski Team">
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Greater Nashville Area &nbsp;·&nbsp; Market Intelligence</div>
+  <h1>Real Estate<br><em>Market Reports</em></h1>
+  <p class="hero-sub">Data-driven market reports for buyers and sellers navigating Greater Nashville's most competitive corridors.</p>
+</div>
+
+<div class="main">
+  <div class="tools-grid">
+
+    <div class="tool-card">
+      <div class="tool-card-banner blue"></div>
+      <div class="tool-card-body">
+        <div class="tool-icon">🏫</div>
+        <div class="tool-name">Jordan Elementary Zone Market History</div>
+        <a class="tool-btn blue" href="https://jasonknashville.github.io/Jordan-Elementary-MarketUpdate-Mar2026/" target="_blank">
+          View Report
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-banner teal"></div>
+      <div class="tool-card-body">
+        <div class="tool-icon">⚓</div>
+        <div class="tool-name">Old Hickory Lake Lakefront Market History</div>
+        <a class="tool-btn teal" href="https://jasonknashville.github.io/Jordan-v-Lakefront-with-Dock/" target="_blank">
+          View Report
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  Jason Kaczmarski &nbsp;•&nbsp; RE/MAX 1st Choice &nbsp;•&nbsp;
+  <a href="tel:6153847355">615-384-7355</a>
+  <div class="disclaimer">
+    Data sourced from Realtracs MLS. Information believed to be accurate but not guaranteed. © 2026 Realtracs, Inc.
+    Report prepared by Jason Kaczmarski, RE/MAX 1st Choice.
+  </div>
+</div>
+
+</body>
+</html>
